@@ -1,0 +1,490 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url(font/Poppins/Poppins-ExtraLight.ttf);
+    font-style: normal;
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url(font/Poppins/Poppins-Regular.ttf);
+    font-style: normal;
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url(font/Poppins/Poppins-Bold.ttf);
+    font-style: normal;
+    font-weight: 700;
+}
+:root {
+    --bgColPag : #1e1d2b;
+    --colorTitle : #ff702a;
+    --colLetNormal : white;
+    --bgColConNav : #2c2b47;
+    --fuenteBase : 'Poppins';
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bgColPag);
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 10 1 100vw;
+    text-align: center;
+    font-family: var(--fuenteBase);
+}
+
+.headCon, .mainCon, .footCon {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bgColPag);
+    color: var(--colLetNormal);
+}
+
+.headCon, .footCon {
+    height: 4rem;
+}
+
+.mainTitle {
+    font-size: 6.5vw;
+    color: var(--colorTitle);
+}
+
+.titleH2 {
+    color: var(--colorTitle);
+}
+
+.txtParr {
+    font-size: 2.5vw;
+}
+
+.txtParrPeq {
+    font-size: 1.8vw;
+}
+
+.colOra { 
+    color: var(--colorTitle);
+}
+
+.txtParrLig {
+    font-size: 1.5vw;
+    font-weight: 300;
+}
+
+
+.btnMenu {
+    background-color: var(--colorTitle);
+    text-decoration: none;
+    color: var(--colLetNormal);
+    padding: 0.7rem;
+    font-size: 1.7vw;
+}
+
+
+/*  ----------------------------------------------- */
+/*  -----------------    Header   ----------------- */
+/*  ----------------------------------------------- */
+
+
+
+.headCon {
+    flex: 1 1 100vw;
+    background-color: var(--bgColPag);
+}
+
+.navCon {
+    position: fixed;
+    top: 0;
+    --state-close : scale(0);
+    --state-hamburger: scale(1);
+    --state-menu : translate(-100%);
+    width: calc(100vw - 5%);
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    justify-content: space-between;
+    background-color: var(--bgColPag);
+}
+
+.navCon:target {
+    --state-close : scale(1);
+    --state-hamburger : scale(0);
+    --state-menu : translate(0);
+}
+
+.nav_logo , .navLink {
+    font-weight: 700;
+}
+
+.nav_logo {
+    z-index: 1;
+    display: grid;
+    justify-content: flex-start;
+    font-size: 2.5rem;
+}
+.navContLinks {
+    position: fixed;
+    background-color: var(--bgColConNav);
+    top: 7%;
+    bottom: 20%;
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-auto-flow: row;
+    row-gap: 2%;   
+    justify-content: center;
+    align-items: center;
+    transform: var(--state-menu);
+    transition: 0.2s transform;
+}
+
+.navItem {
+    list-style: none;
+    text-align: center;
+}
+
+.navLink {
+    text-decoration: none;
+    color: var(--colLetNormal);
+    font-size: 1.2rem;
+}
+
+.navLink:hover {
+    border-bottom: 1px solid rgb(255, 227, 157);
+    color: rgb(255, 227, 157);
+}
+
+.navHambur, .navClose {
+    display: grid;
+    cursor: pointer;
+    grid-column: 2;
+    grid-row: 1;
+    align-content: center;
+    transition: .3s transform;
+}
+
+.navHambur > .navHamIcon,
+.navClose > .navHamIcon {
+    width: 2rem;
+    filter: invert(56%) sepia(25%) saturate(3783%) hue-rotate(339deg) brightness(98%) contrast(106%);
+}
+
+.navHambur {
+    transform: var(--state-hamburger);
+}
+
+.navClose {
+    transform: var(--state-close);
+}
+
+/*     --------------------------------------------------------      */
+/*     ------------------  Main Container ---------------------      */
+/*     --------------------------------------------------------      */
+
+.mainCon {
+    flex: 20 1 100vw;
+    display: grid;
+    justify-items: center;
+    height: auto;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+/*     --------------------------------------------------------      */
+/*     ------------------  Home Container ---------------------      */
+/*     --------------------------------------------------------      */
+
+.conHome {
+    width: calc(100vw - 2.3rem);
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 450px), 1fr));
+}
+
+.conImgHome, .conInfHome, .conInfoAbo, .conImgAbo {
+    height: 96%;
+    width: 100%;
+    display: grid;
+}
+
+.conInfHome, .conInfoAbo {
+    justify-content: center;
+    align-content: center;
+}
+
+.infoHome, .infoAbo {
+    display: grid;
+    justify-items: center;
+    row-gap: 15px;
+}
+
+.infoHome p, .infoAbo p {
+    text-align: center;
+    width: auto;
+}
+
+.conImgHome, .conImgAbo{
+    justify-items: center;
+    align-items: center;
+}
+
+.imgHome, .imgAbout, .imgMen {
+    width: 90%;
+    height: 90%;
+}
+
+.imgHome img, .imgAbout img {
+    max-width: 500px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+
+/*     --------------------------------------------------------      */
+/*     ------------------  About Container --------------------      */
+/*     --------------------------------------------------------      */
+
+.conAbout  {
+    padding: 1rem;
+    width: calc(100vw - 2.3rem);
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 450px), 1fr));
+}
+
+
+/*     --------------------------------------------------------      */
+/*     ------------------  Menu Container ---------------------      */
+/*     --------------------------------------------------------      */
+
+
+.conFoodMen, .conSer {
+    padding: 1rem;
+    width: calc(100vw - 2.3rem);
+    height: 100%;
+    display: grid;
+    grid-template-rows: 25vh 2fr;
+}
+
+.conInfMen, .conImgMen, .conInfSer, .conImgSer {
+    /* border: 1px solid crimson; */
+}
+
+.conInfMen, .conInfSer {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.infMen, .infSer {
+    width: auto;
+    height: auto;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    row-gap: 10px;
+}
+
+.conImgMen, .conImgSer {
+    height: auto;
+}
+
+.imgGroMen, .imgGroSer {
+    display: grid;
+    height: auto;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px),1fr));
+    justify-items: center;
+    align-items: center;
+    gap: 3vw;
+}
+
+.conImgGro, .conImgGroSer {
+    width: 95%;
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-rows: auto;
+    border-radius: 5px;
+    color: black;
+}
+
+.conImgGro {
+    background-color: var(--colLetNormal);
+}
+
+.imgMen > img, .imgSer > img {
+    max-width: 350px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.infoImgSer {
+    display: grid;
+    row-gap: 10px;
+}
+
+.infoImgSer > p {
+    justify-self: center;
+}
+
+.infoImgSer > h2 {
+    font-size: 2.5vw;
+}
+
+.infoImgSer > .txtParrPeq {
+    font-size: 1.9vw;
+    font-weight: 300;
+    text-align: center;
+    color: var(--colLetNormal);
+}
+
+
+/*     --------------------------------------------------------      */
+/*     ------------------  Contact Container -------------------      */
+/*     --------------------------------------------------------      */
+
+
+.conCont {
+    width: calc(100vw - 2.3rem);
+    height: 100%;
+    min-height: 50vh;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(min(100%, 600px), 1fr));
+}
+
+
+.conInfCont {
+    display: grid;
+    justify-items: center;
+    align-items: center; 
+    width: 80%;
+    height: 100%;
+}
+
+.infoCont {
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+    margin: 5vh auto;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    height: 85%;
+    row-gap: 10px;
+    background-color: var(--colLetNormal);
+    color: black;
+}
+
+.conInfCont > .infoCont > p {
+    font-size: 5vw;
+}
+
+
+/*     --------------------------------------------------------      */
+/*     ------------------  Footer Container -------------------      */
+/*     --------------------------------------------------------      */
+
+
+.footCon {
+    flex: 1 1 100vw;
+    margin: 50px auto;
+    height: auto;
+}
+
+.contMenFoot {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: calc(100vw - 2.3rem);
+    row-gap: 8vh;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+}
+
+.menuLinks, .ourServ, .informa, .contUs {
+    display: grid;
+    height: auto;
+    width: auto;
+    grid-template-rows: 30% 1fr;
+    row-gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.menuLinks ul .navItem .navLink {
+    text-align: left;
+}
+
+.titleFoo  {
+    display: grid;
+    font-size: 3vh;
+    height: 100%;
+    grid-row: 1/2;
+    justify-self: center;
+    align-content: center;
+    border-bottom: 1px solid var(--colorTitle);
+}
+
+.textLinkFoot {
+    font-size: 2vh;
+}
+
+.contUs ul .navItem .navLink img {
+    width: 6%;
+    filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(221deg) brightness(104%) contrast(101%);
+}
+
+
+
+
+/*     --------------------------------------------------------      */
+/*     -----------------------  Querys ------------------------      */
+/*     --------------------------------------------------------      */
+
+/* Solo se utilizaron Querys para controlar el tamaño en donde el menu se convertira en 
+un menu hamburger o en barras.  */
+
+@media (min-width:780px) {
+    .navCon {
+        --state-hamburger: scale(0);
+        --state-menu : translate(0);
+    }   
+    .navCon:target {
+        --state-close : scale(0);
+    }
+    .navContLinks {
+        background-color: unset;
+        position: unset;
+        padding: 0px;
+        display: grid;
+        grid-auto-flow: column;
+        column-gap: 1.5rem;
+        transform: unset;
+        transition: 0.2s transform;
+        grid-column: -2/-1;
+        grid-row: 1/2;
+    }  
+}
+@media (max-width:1008px) {
+    .conImgAbo{
+        grid-row: 2/3;
+    }
+    .conInfoAbo {
+        grid-row: 1/2;
+    }
+}
+    
